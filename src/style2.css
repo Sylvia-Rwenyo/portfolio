@@ -1,0 +1,65 @@
+.page-header{
+    margin-top: 1em;
+    height: 3em;
+    width: 100%;
+    padding-left: 3em;
+    padding-right: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.25em;
+}
+.page-header img{
+    margin-top: 1%;
+    height: 80%;
+    width: 3em;
+}
+.page-header a{
+    text-decoration: none;
+    color: #000;
+    margin-top: 1%;
+    height: 80%;
+    padding: 0.3em;
+    width: 8em;
+    border: 2px solid #35b6be;
+    border-radius: 10px;
+    text-align: center;
+}
+
+      
+   
+.zoom {
+    transition: transform 0.2s;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.1); /* Increase the scale to zoom in (e.g., 1.1 for 110% zoom) */
+  }
+  @media (max-width: 768px) {
+    .page-header{
+      height: 2.5em;
+      font-size: 0.85em;
+    }
+    .page-header a{
+        padding: 0.25em;
+        /* padding-bottom: 0.15em; */
+        width: 8em;
+    }
+    .page-header img{
+        width: 2em;
+        height: 55%;
+    }
+    
+}
+  @media (max-width: 500px) {
+    .intro .stacks-div{
+      height: 1.5em;
+    }
+    .intro .stacks-div img{
+      height: 1em;
+    }
+    .all-projects{
+        height: 25em
+    }
+}
+  

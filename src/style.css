@@ -1,0 +1,859 @@
+body{
+    overflow-x: hidden;
+  }
+  
+  /* font */
+  body, h1, p {
+      font-family: 'Roboto', sans-serif;
+    }
+  
+    /* menu */
+    .menu-area{
+      height: 7.5%;
+      display: flex;
+      flex-direction: row;
+     justify-content: space-evenly;
+     width: 100%;
+    }
+    .open-menu{
+     height: 100%;
+     padding: 0.5%;
+     padding-top: 2.5%;
+     display: flex;
+     flex-direction: column;
+    justify-content: space-between;
+    width: 3em;
+    margin-left: 70%;
+    /* Initial position, before the animation */
+    opacity: 0;
+    transform: translateX(100px);
+    /* Apply the transition to control the easing */
+    transition: opacity 1 ease, transform 1s ease;
+  }
+  
+  /* Apply the final position after the animation */
+  .open-menu.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+    .open-menu-span{
+      height: 6px;
+      margin-bottom: 3px;
+      border-radius: 3px;
+      background-image: linear-gradient(to right, #35b6be,#35b6be, #007ea7);
+      transition: transform 0.5s ease;
+    }
+    
+   
+    .open-menu #span-one{
+        width: 100%;
+        transition-delay: 0s; /* No delay for the first span */
+  
+    }
+    .open-menu #span-two{
+      width: 50%;
+      transition-delay: 0.1s; /* 0.1s delay for the second span */
+  }
+  .open-menu #span-three{
+    /* width: 75%; */
+    transition-delay: 0.2s; /* 0.2s delay for the third span */
+  }
+    .menu{
+      height: 100%;
+      padding: 0.5%;
+      padding-top: 2.5%;
+      width: 100%;
+      justify-self: flex-end;
+      opacity: 0;
+      /* margin-left: 40%; */
+    }
+    .menu ul{
+      list-style-type: none;
+      padding: 0;
+      margin-top: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-size: 1.25em;
+    }
+    .links{
+      margin-left: 12.5%;
+      margin-top: 2.5%;
+    }
+    .links ul{
+      list-style-type: none;
+      padding-left: 70%;
+      margin-top: 0;
+      height: 100%;
+      width: 30%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      font-size: 1.25em;
+    }
+    .links ul li{
+      width: 40%;
+      text-align: center;
+  
+      /* Set initial state for each menu item */
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .menu ul li{
+      width: 15%;
+      text-align: center;
+  
+      /* Set initial state for each menu item */
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .links ul li:nth-child(1){
+      border-bottom: 2px solid #35b6be;
+      color: #35b6be;
+    }
+    
+    /* Define staggered animation using animation delay */
+     .menu ul li:nth-child(1), .links ul li:nth-child(1){ 
+      animation-delay: 0s; 
+    }
+     .menu ul li:nth-child(2), .links ul li:nth-child(2) { animation-delay: 0.1s; }
+     .menu ul li:nth-child(3){ animation-delay: 0.2s; }
+     .menu ul li:nth-child(4) { animation-delay: 0.3s; }
+    
+    /* Create a fade-in animation for the menu and menu items */
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Apply the animation to the menu and menu items */
+    .menu,  .menu ul li , .links ul li, .links{
+      animation: fadeInAnimation 0.5s ease forwards;
+    }
+    
+    .menu ul li a, .links ul li a{
+      height: 100%;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+      margin-left: 2.5%;
+    }
+    .links ul li a{
+      margin-left: 0;
+      text-align: right;
+    }
+    .menu ul .active a, .links ul  .active a{
+      color: #35b6be;
+    }
+    .menu ul li:hover, .links ul li:hover{
+      border-bottom: 2px solid black;
+    }
+    .menu ul .active:hover, .links ul .active:hover{
+      border-bottom: 2px solid #35b6be;
+    }
+  
+  
+  
+    /* intro */
+  .intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 3.5%;
+    margin-top: 5%;
+    text-align: center;
+  }
+  .intro .title{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.3em;
+  }
+  .intro .title h1, .all-contacts .CTA h1{
+    font-size: 4em;
+    background-image: linear-gradient(to right, #35b6be, #007ea7, #35b6be);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: waveAnimation 4s infinite;
+  }
+  .intro .title h4{
+    margin-top: 3%;
+  }
+  .intro .stacks-div{
+    display: grid;
+    width: 70%;
+    margin-left: 20%;
+    height: 4em;
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+    grid-template-columns: auto auto auto auto auto auto auto;
+  }
+  .intro .stacks-div img{
+    height: 3em;
+    width: 70%;
+  }
+  @keyframes waveAnimation {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  }
+  .intro .title h4{
+    font-size: 2em;
+  }
+  .intro .objective, .projects-description .content{
+    width: 47.5%;
+    height: 100%;
+    font-size: 1.05em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 5%;
+  }
+  .projects-description .content{
+    margin-left: 15%;
+    width: 70%;
+    padding-top: 1%;
+  }
+  .intro .objective div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2.5%;
+    margin-right: 20%;
+  }
+  .btn{
+    width: 9em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .to-link, .button-overlay button:nth-child(1){
+    background-image: linear-gradient(to right, #35b6be, #007ea7);
+    color: #333333;
+  
+  }
+    .btn svg {
+      height: 1em;
+      margin-right: 1em;
+      margin-top: 0.2em;
+    }
+   .to-download, .button-overlay button:nth-child(2){
+    background-image: linear-gradient(to right,#408DCE, #35b6be);
+    color: #333333;
+  
+  }
+  .btn:hover, .button-overlay button:hover{
+    background: rgba(255, 255, 255, 0.75);
+  }
+  
+   /* slideshow */
+   .projects-slides{
+    height: 80%;
+    width: 95%;
+    margin-right: 5%;
+   }
+  /* Adjust the carousel height, width, and padding */
+  #slideshow {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+    }
+    .carousel-inner{
+      height: 95%;
+      width: 100%;
+    }
+    .carousel-item{
+      width: 100%;
+      height: 100%;
+      margin-left: 5%;
+    }
+    .carousel-item-group{
+      display: flex;
+      flex-direction: column;
+      height: 85%;
+      width: 80%;
+      margin-left: 7.5%;
+    }
+     /* Add some styles to the span indicator */
+     .slide-title{
+      height: 12.5%;
+      margin-bottom: 1%;
+      border-bottom: 4px solid #35b6be;
+      width: 95%;
+      margin-left: 2.5%;
+     }
+    
+       /* all projects display */
+  .all-projects{
+    display: grid;
+    grid-template-columns: 47.5% 47.5%;
+    column-gap: 5%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2.5%;
+    height: 20em;
+  }
+  .projects-list{
+    height: 100%;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 5%;
+  }
+  .projects-list .list-card{
+    width: 100%;
+    height: 75%;
+  }
+  .projects-list .list-card img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .projects-list .short-description{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    height: 75%;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .projects-list .short-description p{
+    margin-top: 2.5%;
+  }
+    /* Add border radius to the slide items */
+    .carousel-item-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 90%;
+      position: relative;
+    }
+    
+    .carousel-item-group img{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .img-demo{
+      height: 60%;
+      width: 90%;
+      margin-left: 5%;
+      display: flex;
+      /* display: none; */
+    }
+    /* .img-demo .carousel-item-group,  .img-demo .carousel-item-group img{
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+    } */
+    .img-demo .view-medium{
+      padding-top: 37.5%;
+      padding-left:80%;
+  
+  
+    }
+     .video-demo{
+      height: 60%;
+      width: 90%;
+      margin-left: 5%;
+      display: flex;
+    }
+    .video-demo video{
+      height: 400px;
+      width: 80%;
+      margin-left: 10%;
+  
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+     color: rgba(0, 0, 0, 0.5);
+    }
+  .img-demo  .carousel-item-group{
+    height: 100%;
+  }
+    /* show overlay of option when user hover over project image */
+    .view-medium{
+        position: absolute;
+        top: 0;
+        left:0;
+        margin-top: 27.5%;
+        width: 10%;
+        height:10%;
+        display: flex;
+        flex-direction: row;
+        margin-left:75%;
+        margin-right: 5%;
+        justify-content: space-between;
+        transition: opacity 0.3s;
+        font-size: 2em;
+    }
+    .view-medium .fa-image, .view-medium .fa-video{
+      height: 2em;
+      width: 2em;
+      padding: 0.5em;
+      background-color: #333333;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .view-medium i:hover{
+      color: white;
+    }
+    .button-overlay {
+      position: absolute;
+      top: 0;
+      left:0;
+      padding-top: 20%;
+      width: 100%;
+      height:100%;
+      display: flex;
+      flex-direction: row;
+      padding-left: 20%;
+      padding-right: 20%;
+      justify-content: space-around;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .button-overlay button{
+      height: 3em;
+    }
+    .carousel-item:hover .button-overlay {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  
+    
+    
+    /* Optional styling for buttons on hover */
+    .button-overlay button:hover {
+      background-color: #333333;
+      color: #ffffff;
+    }
+  
+    .projects-page .projects-slides{
+      margin-top: 2.5%;
+      height: 60%;
+    }
+  
+    /* recommendations area */
+    .recommendations{
+      width: 75%;
+      margin-left: 12.5%;
+      height: 40%;
+      margin-top: 2.5%;
+    }
+    .recommendations h3{
+      padding-left: 7.5%;
+      font-size: 1.25em;
+    }
+    .rec-carousel{
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    .rec-cards{
+      width: 90%;
+      margin-left: 5%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 2.5%;
+    }
+    .rec-card{
+      width: 47.5%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.25em;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px  0 rgb(135, 135, 135);
+    }
+    .rec-card img{
+      width: 100%;
+      height: 80%;
+    }
+    .rec-card h5{
+      padding-left: 10%;
+      padding-top: 0.5%;
+    }
+    .rec-card h5 i{
+      margin-left: 1em;
+      margin-top: 0.5em;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .rec-cards {
+      transition: transform 0.3s ease;
+    }
+    
+   
+    
+    /* .rec-carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      background: transparent;
+    }
+    
+    .rec-carousel .prev-button {
+      left: 0;
+    }
+    
+    .rec-carousel .next-button {
+      right: 0;
+    } */
+    
+  
+    /* footer */
+  .footer-area{
+    height: 15em;
+    width: 100%;
+    padding: 1em;
+    padding-top: 5%;
+    background: transparent;
+    color: black;
+    box-shadow: 0 2px 4px  0 rgb(135, 135, 135);
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .social-media{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* padding-top: 8.5%; */
+  }
+  .social-media a{
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-block-start: 0.15em;
+    color: #000;
+    display: flex;
+    flex-direction: row;
+    width: 33%;
+    transition: transform 0.3s;
+  }
+  .social-media a:hover{
+    text-decoration: none;
+    color: #000;
+    transform: scale(1.1);
+  }
+  .social-media i{
+    margin-right: 10%;
+    font-size: 2em;
+  }
+  .footer-area .menu-area{
+    width: 15%;
+    display: block;
+    /* height: 7.5%; */
+    font-size: 1.25em;
+  
+  }
+  .footer-area .menu-area .open-menu{
+    opacity: 1;
+    transform: translateX(0);
+    /* height: 100%; */
+    height: 3em;
+    transition: transform 0.3s;
+  }
+  .footer-area .menu-area .open-menu:hover{
+    transform: scale(1.1);
+  }
+  .footer-area .toProjects{
+    width: 30%;
+    margin-left: 5%;
+  }
+  .footer-area .toProjects button{
+    height: 3em;
+    border-radius: 10px;
+    width: 60%;
+    background: #000;
+    color: white;
+    padding: 0;
+    font-size: 1.3em;
+    transition: transform 0.3s;
+    margin-left: 20%;
+  }
+  .toProjects h4, .toProjects p{
+    width: 60%;
+    font-size: 1.75em;
+    margin-left: 30%;
+    text-align: center;
+  }
+  .toProjects p{
+    font-size: 1.25em;
+  }
+  .footer-area .toProjects button i{
+    margin-left: 10%;
+  }
+  .footer-area .toProjects button:hover{
+    transform: scale(1.1);
+  }
+  
+  
+  
+  
+    /* on smaller screens */
+    @media (max-width: 999px){
+      .intro{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 50%;
+        margin-bottom: 2.5%;
+      }
+      .intro .title{
+        width: 95%;
+        margin-left: 2.5%;
+      }
+      .intro .title h1, .all-contacts .CTA h1{
+        font-size: 3em;
+      }
+      .intro .title h4{
+        margin-top: 3%;
+        font-size: 1.8em
+      }
+      .intro .objective{
+        width: 95%;
+        margin-left: 2.5%;
+        font-size: 1em;
+      }
+      .intro .objective div .btn{
+        width: 8em;
+      }
+      .intro .stacks-div{
+        height: 3em;
+        margin-left: 17.5%;
+      }
+      .intro .stacks-div img{
+        height: 2em;
+      }
+      .btn i{
+        margin-left: 0.5em;
+      }
+      .open-menu{
+        margin-left: 85%;
+      }
+      .menu ul li{
+        width: 20%;
+      }
+      .links ul li{
+        width: 40%;
+      }
+      .carousel-item img{
+        width: 100%;
+      }
+      .carousel-item-group img:nth-child(2) { display: none; }
+      .projects-slides{
+        height: 80%;
+      }
+      #images-slideshow{
+        height: 100%;
+  
+      }
+      .all-projects{
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 48% 48%;
+        column-gap: 0;
+        row-gap: 2.5em;
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 2.5%;
+        height: 40em;
+        padding-bottom: 2.5em;
+        padding-top: 1.5em;
+      }
+      .projects-list{
+        width: 100%;
+        height: 100%;
+      }
+      .projects-list .list-card{
+        height: 100%;
+      }
+      .projects-list .short-description{
+        height: 100%;
+      }
+  
+      /* project descriptin links */
+      .links ul{
+        width: 60%;
+      }
+  
+      .social-media{
+          margin-top: 2.5%;
+      }
+  .social-media i{
+    font-size: 1.5em;
+  }
+  .footer-area .menu-area{
+  
+    font-size: 1.25em;
+  
+  }
+  /* .footer-area .menu-area .open-menu{
+    opacity: 1;
+    transform: translateX(0);
+    /* height: 100%; */
+    /* height: 3em;
+    transition: transform 0.3s; */
+  /* }  */
+  
+  .footer-area .toProjects{
+    width: 30%;
+    margin-left: 5%;
+  }
+  .footer-area .toProjects button{
+    height: 2.5em;
+    width: 70%;
+    font-size: 1.25em;
+    margin-top: 2.5%;
+  }
+  .footer-area .toProjects button i{
+    margin-left: 20%;
+  }
+  
+  
+  
+    }
+      /* Hide the carousel controls on smaller screens */
+    @media (max-width: 768px) {
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none;
+      }
+      .links ul{
+      width: 100%;
+      padding-left: 50%;
+    }
+    .links ul li{
+        width: 30%;
+        margin-left: 0;
+  
+      }
+      .page-header{
+        height: 2.5em;
+      }
+      /* .intro .title */
+      .intro .title h1, .all-contacts .CTA h1{
+        font-size: 2em;
+      }
+      .intro .stacks-div{
+        height: 2em;
+        margin-left: 15%;
+      }
+      .intro .stacks-div img{
+        height: 1.5em;
+      }
+      .intro .title h4{
+        margin-top: 3%;
+        font-size: 1.3em
+      }
+  .social-media{
+    margin-left: 10%;
+  }
+  .footer-area .menu-area .open-menu{
+    margin-left: 0;
+  }
+   .toProjects h4,  .toProjects p{
+      margin-left: 5%;
+      width: 90%;
+  }
+  .footer-area .toProjects button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 0.25em;
+  }
+  
+  .footer-area .toProjects button i{
+    margin-left: 0;
+    margin-block-start: 0.35em;
+  }
+  .all-projects{  
+    height: 35em;
+  }
+ 
+      
+    }
+      @media (max-width: 600px) {    
+      .footer-area{
+    height: 22.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+     
+  .social-media{
+   width: 80%;
+   padding-left: 5%;
+  }
+  .footer-area .menu-area{
+    margin-left: 15%;
+  }
+  .footer-area .menu-area .open-menu{
+    margin-left: 10%;
+  }
+  .footer-area .toProjects{
+    width: 80%;
+    margin-top: 10%;
+  }
+  .footer-area .toProjects button{
+    width: 60%;
+    margin-left: 12.5%;
+    /* margin-right: 30%; */
+  }
+  
+  .toProjects h4, .toProjects p {
+    margin-left:13.5%;
+    text-align: left;
+  }
+  .button-overlay {
+    padding-left: 5%;
+    padding-right: 5%;
+   justify-content: space-evenly;
+  }
+  .all-projects{  
+    height: 30em;
+  }
+  .projects-list .short-description{
+    font-size: 1.1em;
+  }
+      }
