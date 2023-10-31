@@ -64,7 +64,7 @@ function Projects() {
           </div>
           <div className="short-description" id="project1-description">
             Mobile Healthcare platform with progress tracking and risk prediction
-            <a href="" className="btn lg to-link zoom">
+            <a href="https://nafuu.000webhostapp.com/" className="btn lg to-link zoom">
               Visit Site
               <FontAwesomeIcon icon={faAngleRight} />
             </a>
