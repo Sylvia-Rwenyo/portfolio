@@ -310,6 +310,12 @@ body{
     margin-top: 2.5%;
     height: 20em;
   }
+  .projects-header-text{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 2.5%;
+    text-align: center;
+  }
   .projects-list{
     height: 100%;
     position: relative;
@@ -319,11 +325,13 @@ body{
   .projects-list .list-card{
     width: 100%;
     height: 75%;
+    box-shadow: 0 2px 4px  0 rgb(135, 135, 135);
+    border-radius: 10px;
   }
   .projects-list .list-card img{
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    
   }
   .projects-list .short-description{
     position: absolute;

@@ -57,6 +57,7 @@ function Projects() {
   return (
     <>
       <div className='slide-title'></div>
+      <h1 className='projects-header-text'>My Projects</h1>
       <section className="all-projects">
         <div className="projects-list" id="project1">
           <div className="list-card">
