@@ -39,7 +39,7 @@ function Home() {
           <h1>Sylvia Rwenyo</h1>
           <h4>Full Stack Developer</h4>
         </div>
-        <div class="stacks-div">
+        <div className="stacks-div">
           <img src={html} alt='HTML5'/>
           <img src={css} alt='CSS'/>
           <img src={js} alt='JavaScript'/>
@@ -51,7 +51,7 @@ function Home() {
       </section>
       {/* projects cards */}
       <Projects />
-      {/* Include your Footer component or HTML footer here */}
+      {/* Include Footer component */}
       <Footer />
       {/* Script imports with corrected URLs */}
       <script async defer src="script.js"></script>
