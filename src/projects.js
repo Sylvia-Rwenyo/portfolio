@@ -47,24 +47,24 @@ function Projects() {
   },
   {
     id: 'project3',
+    category: 'Healthcare',
+    images: [nafuu1, nafuu2, nafuu3, nafuu4, nafuu5, nafuu6, nafuu7, nafuu8],
+    description: 'Mobile Healthcare platform with progress tracking and risk prediction',
+    alt: 'Nafuu'
+  },
+  {
+    id: 'project4',
     category: 'Literature',
     images: [readinglist],
     description: 'An app designed for users to manage their reading interests. It allows users to search for books, add them to a personal reading list, and remove them as needed.',
     alt: 'Reading List'
   },
   {
-    id: 'project4',
+    id: 'project5',
     category: 'Nutrition',
     images: [nutripedia],
     description: 'A food nutritional facts reference catalogue. It shows the quantity of nutrients (carbohydrates., fat, protein) per serving of various food items',
     alt: 'Nutripedia'
-  },
-  {
-    id: 'project5',
-    category: 'Healthcare',
-    images: [nafuu1, nafuu2, nafuu3, nafuu4, nafuu5, nafuu6, nafuu7, nafuu8],
-    description: 'Mobile Healthcare platform with progress tracking and risk prediction',
-    alt: 'Nafuu'
   }
 ];
 
