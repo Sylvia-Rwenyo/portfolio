@@ -1,6 +1,6 @@
 .page-header{
-    margin-top: 1em;
-    height: 3em;
+  padding-top: 2em;
+    height: 5em;
     width: 100%;
     padding-left: 3em;
     padding-right: 3em;
@@ -14,20 +14,64 @@
     height: 80%;
     width: 3em;
 }
-.page-header a{
+.page-header a, .see-more-btn{
     text-decoration: none;
     color: #000;
     margin-top: 1%;
     height: 80%;
-    padding: 0.3em;
+    padding: 0.75em;
     width: 8em;
-    border: 2px solid #35b6be;
     border-radius: 10px;
     text-align: center;
+    font-size: 1em;
+    margin-left: 2em;
 }
 
-      
-   
+.page-header .pos{
+    border: 2px solid #35b6be;
+}
+
+.page-header .neg, .see-more-btn{
+    background-image: linear-gradient(to right, #35b6be, #007ea7, #35b6be);
+    color: white;
+}
+
+.page-header a:hover{
+transform: scale(1.1);
+}
+
+.see-more-btn{
+  height: 3em;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.category-button {
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.category-button:hover {
+  background-color: #ccc;
+}
+
+.category-button.active {
+  background-color: #000;
+  color: #fff;
+}
+
+
 .zoom {
     transition: transform 0.2s;
   }
@@ -37,7 +81,6 @@
   }
   @media (max-width: 768px) {
     .page-header{
-      height: 2.5em;
       font-size: 0.85em;
     }
     .page-header a{
@@ -49,7 +92,11 @@
         width: 2em;
         height: 55%;
     }
+         .category-button {
+          padding: 0.2rem 0.35rem;
+}
     
+
 }
   @media (max-width: 500px) {
     .intro .stacks-div{
@@ -59,7 +106,40 @@
       height: 1em;
     }
     .all-projects{
-        height: 25em
+        height: auto
     }
+    .category-buttons {
+  gap: 0.3rem;
+}
+  .intro .col-md-4 {
+        -ms-flex: 0 0 38%;
+        flex: 0 0 38%;
+        max-width: 38%;
+  }
+  .mb-4{
+    text-align: left;
+    -ms-flex: 0 0 62%;
+        flex: 0 0 62%;
+        max-width: 62%;
+  }
+   .intro .title h1, .all-contacts .CTA h1 {
+    font-size: 1.5em;
+  }
+  .intro .title h3 {
+    font-size: 1.25em;
+    padding-bottom: 0.5em;
+  }
+  .intro .lead {
+    font-size: 1rem;
+  }
+          .category-buttons {
+          width: 100%;
+          gap: 1rem;
+          overflow: scroll;
+
+}
+.see-more-btn, .short-description{
+    display: none;
+  }
 }
   

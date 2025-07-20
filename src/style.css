@@ -171,8 +171,10 @@ body {
 
 /* Intro styles (unchanged) */
 .intro {
+  width: 90%;
+  margin-left: 7.5%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   margin-bottom: 3.5%;
   margin-top: 5%;
@@ -180,16 +182,16 @@ body {
 }
 
 .intro .title {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-  font-size: 1.3em;
+  font-size: 1em;
+  text-align: center;
 }
 
 .intro .title h1, .all-contacts .CTA h1 {
-  font-size: 4em;
+  font-size: 3.5em;
   background-image: linear-gradient(to right, #35b6be, #007ea7, #35b6be);
   background-clip: text;
   -webkit-background-clip: text;
@@ -197,8 +199,15 @@ body {
   animation: waveAnimation 4s infinite;
 }
 
-.intro .title h4 {
+.intro .title h3 {
   margin-top: 3%;
+  font-size: 2.5em;
+}
+.intro .pfp{
+  border-radius: 10px;
+}
+.intro p{
+  text-align: left;
 }
 
 .intro .stacks-div {
@@ -754,10 +763,9 @@ body {
 }
 
 .footer-area {
-  height: 15em;
+  height: 17.5em;
   width: 100%;
-  padding: 1em;
-  padding-top: 5%;
+  padding: 1em; 
   background: transparent;
   color: black;
   box-shadow: 0 2px 4px 0 rgb(135, 135, 135);
@@ -766,9 +774,15 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+.footer-area h4{
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  font-weight: bold;
+}
 
 .social-media {
-  width: 30%;
+  width: 70%;
+  margin-left: 17.5%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -776,7 +790,7 @@ body {
 
 .social-media a {
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1em;
   margin-block-start: 0.15em;
   color: #000;
   display: flex;
@@ -791,67 +805,41 @@ body {
   transform: scale(1.1);
 }
 
-.social-media i {
+.social-media svg {
   margin-right: 10%;
   font-size: 2em;
 }
 
-.footer-area .menu-area {
-  width: 15%;
-  display: block;
-  font-size: 1.25em;
-}
-
-.footer-area .menu-area .open-menu {
-  opacity: 1;
-  transform: translateX(0);
-  height: 3em;
-  transition: transform 0.3s;
-}
-
-.footer-area .menu-area .open-menu:hover {
-  transform: scale(1.1);
-}
-
-.footer-area .toProjects {
-  width: 30%;
-  margin-left: 5%;
-}
-
-.footer-area .toProjects button {
-  height: 3em;
-  border-radius: 10px;
-  width: 60%;
-  background: #000;
-  color: white;
-  padding: 0;
-  font-size: 1.3em;
-  transition: transform 0.3s;
-  margin-left: 20%;
-}
-
-.toProjects h4, .toProjects p {
-  width: 60%;
-  font-size: 1.75em;
-  margin-left: 30%;
+.footer-area .toTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: white;
+  color: #000;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
   text-align: center;
 }
 
-.toProjects p {
-  font-size: 1.25em;
+.footer-area .toTop:hover {
+  background-color: #000;
+  color: #fff;
 }
 
-.footer-area .toProjects button i {
-  margin-left: 10%;
-}
-
-.footer-area .toProjects button:hover {
-  transform: scale(1.1);
+.toTop svg{
+  margin-right: 0;
 }
 
 /* Media queries (adjusted for modal and carousel) */
 @media (max-width: 999px) {
-
+.container{
+  padding-right: 0;
+  margin-right: 0;
+  margin: 1em;
+}
   .modal-close {
   position: absolute;
   top: 0;
@@ -865,17 +853,16 @@ body {
   }
   .intro {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     height: 50%;
     margin-bottom: 2.5%;
+    margin-left: 0;
+    width: 100%;
   }
-
-  .intro .title {
-    width: 95%;
-    margin-left: 2.5%;
-  }
-
+.intro .title{
+  justify-content: space-around;
+}
   .intro .title h1, .all-contacts .CTA h1 {
     font-size: 3em;
   }
@@ -904,6 +891,11 @@ body {
     height: 2em;
   }
 
+  /* .intro .col-md-4 {
+        -ms-flex: 0 0 40%;
+        flex: 0 0 40%;
+        max-width: 40%;
+  } */
   .btn i {
     margin-left: 0.5em;
   }
@@ -927,6 +919,35 @@ body {
   .carousel-item-group img:nth-child(2) {
     display: none;
   }
+  @media (max-width: 1000px) {
+  .carousel-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-control.prev,
+  .carousel-control.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-control.prev {
+    left: -30px; /* adjust as needed */
+  }
+
+  .carousel-control.next {
+    right: -30px; /* adjust as needed */
+  }
+
+  .projects-list {
+    flex: 0 1 90%; /* ensures it doesn't stretch edge-to-edge */
+    max-width: 90%;
+  }
+}
+
 
   .projects-slides {
     height: 80%;
@@ -935,7 +956,10 @@ body {
   #images-slideshow {
     height: 100%;
   }
-
+.category-buttons {
+  width: 80%;
+  margin-left: 10%;
+}
   .all-projects {
     display: grid;
     grid-template-columns: none;
@@ -998,6 +1022,20 @@ body {
 }
 
 @media (max-width: 768px) {
+    .intro .col-md-4 {
+        -ms-flex: 0 0 33%;
+        flex: 0 0 33%;
+        max-width: 33%;
+  }
+  .mb-4{
+    -ms-flex: 0 0 66%;
+        flex: 0 0 66%;
+        max-width: 66%;
+  }
+  .container{
+    max-width: 95%;
+    margin-left: 2.5%;
+  }
   .carousel-control-prev,
   .carousel-control-next {
     display: none;
@@ -1013,12 +1051,16 @@ body {
     margin-left: 0;
   }
 
-  .page-header {
-    height: 2.5em;
-  }
-
+  
   .intro .title h1, .all-contacts .CTA h1 {
     font-size: 2em;
+  }
+  .intro .title h3 {
+    font-size: 1.75em;
+    padding-bottom: 0.75em;
+  }
+  .intro .lead {
+    font-size: 1rem;
   }
 
   .intro .stacks-div {
@@ -1036,7 +1078,8 @@ body {
   }
 
   .social-media {
-    margin-left: 10%;
+    width: 95%;
+    margin-left: 2.5%;
   }
 
   .footer-area .menu-area .open-menu {
@@ -1063,9 +1106,18 @@ body {
   .all-projects {
     height: auto;
   }
+  .category-buttons {
+  width: 95%;
+  margin-left: 2.5%;
+  gap: 0.5rem;
+}
 }
 
 @media (max-width: 600px) {
+  .intro .col-md-4{
+    height:auto ;
+    margin-top: 10%;
+  }
   .footer-area {
     height: 22.5em;
     display: flex;
@@ -1075,9 +1127,13 @@ body {
 
   .social-media {
     width: 80%;
-    padding-left: 5%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
   }
-
+.social-media a {
+  width: 100%;
+}
   .footer-area .menu-area {
     margin-left: 15%;
   }
@@ -1114,4 +1170,10 @@ body {
   .projects-list .short-description {
     font-size: 1.1em;
   }
+  .category-buttons {
+  width: 98%;
+  margin-left: 1%;
+  gap: 0.15rem;
+  padding: 0.25rem 0.5rem;
+}
 }

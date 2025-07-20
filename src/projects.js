@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import './style2.css';
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import nafuu1 from "./images/nafuu/1 - landing page.png";
 import nafuu2 from "./images/nafuu/2 - login page.png";
@@ -14,6 +15,14 @@ import viewNyumba12 from "./images/viewNyumba/home page 2.png";
 import viewNyumba13 from "./images/viewNyumba/home page 3.png";
 import viewNyumba2 from "./images/viewNyumba/listings page.png";
 import viewNyumba3 from "./images/viewNyumba/user-dashboard.png";
+import readinglist from "./images/reading-list.png";
+import nutripedia from "./images/nutripedia.PNG";
+import ecom1 from "./images/ecommerce-site/ecom1.PNG";
+import ecom2 from "./images/ecommerce-site/ecom2.PNG";
+import ecom3 from "./images/ecommerce-site/ecom3.PNG";
+import ecom4 from "./images/ecommerce-site/ecom4.PNG";
+import ecom5 from "./images/ecommerce-site/ecom5.png";
+
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,20 +30,44 @@ function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const projects = [
-    {
-      id: 'project1',
-      images: [nafuu1, nafuu2, nafuu3, nafuu4, nafuu5, nafuu6, nafuu7, nafuu8],
-      description: "Mobile Healthcare platform with progress tracking and risk prediction",
-      alt: "Nafuu"
-    },
-    {
-      id: 'project2',
-      images: [viewNyumba1, viewNyumba12, viewNyumba13,  viewNyumba2, viewNyumba3],
-      description: "Personalized real estate catalog with premium access to property information",
-      alt: "View nyumba"
-    }
-  ];
+ const projects = [
+  {
+    id: 'project1',
+    category: 'Real Estate',
+    images: [viewNyumba1, viewNyumba12, viewNyumba13, viewNyumba2, viewNyumba3],
+    description: 'A personalized real estate catalog with premium access to property information',
+    alt: 'View Nyumba'
+  },
+  {
+    id: 'project2',
+    category: 'Ecommerce',
+    images: [ecom1, ecom2, ecom3, ecom4, ecom5],
+    description: 'An e-commerce website with product catalogues, for the user to add to cart, order and pay through       M-pesa',
+    alt: 'E-shop'
+  },
+  {
+    id: 'project3',
+    category: 'Literature',
+    images: [readinglist],
+    description: 'An app designed for users to manage their reading interests. It allows users to search for books, add them to a personal reading list, and remove them as needed.',
+    alt: 'Reading List'
+  },
+  {
+    id: 'project4',
+    category: 'Nutrition',
+    images: [nutripedia],
+    description: 'A food nutritional facts reference catalogue. It shows the quantity of nutrients (carbohydrates., fat, protein) per serving of various food items',
+    alt: 'Nutripedia'
+  },
+  {
+    id: 'project5',
+    category: 'Healthcare',
+    images: [nafuu1, nafuu2, nafuu3, nafuu4, nafuu5, nafuu6, nafuu7, nafuu8],
+    description: 'Mobile Healthcare platform with progress tracking and risk prediction',
+    alt: 'Nafuu'
+  }
+];
+
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => 
@@ -76,6 +109,19 @@ function Projects() {
     <>
       <div className='slide-title'></div>
       <h1 className='projects-header-text'>My Projects</h1>
+
+      <div className="category-buttons">
+        {projects.map((project, index) => (
+          <button
+            key={project.id}
+            className={`category-button ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          >
+            {project.category}
+          </button>
+        ))}
+      </div>
+
       <section className="all-projects">
         <div className="carousel-container">
           <button 
@@ -103,7 +149,9 @@ function Projects() {
                     className="project-image"
                   />
                   <div className="short-description">
+                    <h2><b>{project.alt}</b></h2>
                     <p>{project.description}</p>
+                     <button className="see-more-btn">See More</button>
                   </div>
                 </div>
               </div>
@@ -157,9 +205,21 @@ function Projects() {
               </button>
             </div>
             <div className="modal-description">
-              <h2>{selectedProject.alt}</h2>
-              <p>{selectedProject.description}</p>
-            </div>
+                <h2>{selectedProject.alt}</h2>
+                <p>{selectedProject.description}</p>
+
+                {selectedProject.site && (
+                  <a
+                    href={selectedProject.site}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn visit-site-button"
+                  >
+                    Visit Site
+                  </a>
+                )}
+              </div>
+
           </div>
         </div>
       )}
